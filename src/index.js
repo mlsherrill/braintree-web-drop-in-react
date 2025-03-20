@@ -17,6 +17,9 @@ export default class DropIn extends React.Component {
     onNoPaymentMethodRequestable: PropTypes.func,
     onPaymentMethodRequestable: PropTypes.func,
     onPaymentOptionSelected: PropTypes.func,
+    onCardBlur: PropTypes.func,
+    onCardFocus: PropTypes.func,
+    onValidityChange: PropTypes.func,
   };
 
   static defaultProps = {
@@ -47,6 +50,21 @@ export default class DropIn extends React.Component {
       this.instance.on("paymentOptionSelected", (...args) => {
         if (this.props.onPaymentOptionSelected) {
           this.props.onPaymentOptionSelected(...args);
+        }
+      });
+      this.instance.on("card:blur", (...args) => {
+        if (this.props.onCardBlur) {
+          this.props.onCardBlur(...args);
+        }
+      });
+      this.instance.on("card:focus", (...args) => {
+        if (this.props.onCardFocus) {
+          this.props.onCardFocus(...args);
+        }
+      });
+      this.instance.on("validityChange", (...args) => {
+        if (this.props.onValidityChange) {
+          this.props.onValidityChange(...args);
         }
       });
 
