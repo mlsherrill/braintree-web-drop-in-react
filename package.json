@@ -25,7 +25,8 @@
     "clean": "rimraf lib",
     "example": "cd example && npm install && npm run start",
     "format": "prettier --write 'src/**.js' index.d.ts package.json CHANGELOG.md README.md .travis.yml example/index.html example/index.js example/README.md example/package.json",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "braintree-web-drop-in": "^1.44.1",
